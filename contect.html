@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+                @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Dancing+Script:wght@400..700&display=swap');
+:root{
+    --main-color:#2980b9;
+    --red:red;
+    --light-color:#777;
+    --light-bg:#eee;
+    --black:#2c3e50;
+    --white:#fff;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.2);
+    --border:.1rem solid rgba(0,0,0,.2);
+}
+*{
+  font-family: "Comfortaa", cursive;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none; border: none;
+}
+*::selection{
+    background-color: var(--main-color);
+    color: var(--white);
+}
+::-webkit-scrollbar{
+    width: 1rem;
+    height: .5rem;
+}
+::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: rgb(91, 88, 88);
+}
+section{
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.heading{
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    color: var(--black);
+    text-transform: capitalize;
+padding: 1rem 0;
+}
+
+.header{
+    position:sticky;
+    top: 0;left: 0;right: 0;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    z-index: 1000;
+}
+.flex-btn{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+       
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--white);
+    background-color: var(--main-color);
+    border-radius: .5rem;
+    text-transform: capitalize;
+    text-align: center;
+}
+.btn:hover{
+    background-color: var(--black);
+}
+.header .flex{
+position: relative;
+display: flex;
+text-align: center;
+justify-content: space-between;
+} 
+#menu-btn{
+    font-size: 2.7rem;
+    color: var(--black);
+    cursor: pointer;
+    display: none;
+}
+.header .flex .logo{
+font-size: 2.2rem;
+color: var(--black);
+}
+.header .flex .logo i{
+    margin-right: .5rem;
+    color: var(--light-color);
+
+}
+.header .flex .navbar a{
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    font-size: 1.6rem;
+    color: var(--light-color);
+    border-radius: .5rem;
+text-transform: capitalize;
+}
+.header .flex .navbar a:hover{
+    background-color: var(--main-color);
+    color: var(--white);
+}
+.boxa{
+    font-size: 5rem;
+}
+
+        @media (max-width:450px){
+
+.boxa{
+        font-size: 5rem;
+    }
+}
+        .boxa{
+    background-color:black;
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 2rem;
+    font-size: 3rem;
+    text-transform: capitalize;
+    position: relative;
+}
+@property --angle{
+    syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+ }
+ .boxa::after{
+content: '';
+position: absolute;
+height: 100%;
+width: 100%;
+background-image:conic-gradient(from var(--angle),transparent,orange,violet);
+top: 50%;
+left: 50%;
+translate:-50% -50%;
+z-index :-1;
+padding: 5px;
+border-radius: 20px;
+animation: 6s spin linear infinite; 
+animation-play-state: running;
+}
+
+@keyframes spin
+{
+    from{
+        --angle:0deg;
+    }
+ to{
+    --angle:360deg;
+} 
+}
+.contact .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,35rem);
+   gap: 1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+}
+.contact .box-container .box{
+    background-color: var(--white);
+    border: var(--border);
+    border-radius: .5rem;
+    box-shadow:var(--box-shadow);
+    padding:3rem 2rem;
+    text-align: center;
+}
+.contact .box-container .box i{
+    height: 4.5rem;
+    width: 5rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    color: var(--white);
+    background-color: var(--black);
+    border-radius:.5rem;
+    margin-bottom: 2rem;
+}
+.contact .box-container .box a{
+    display: block;
+    padding-top: .5rem;
+    font-size: 1.6rem;
+    color: var(--light-color);
+    line-height: 1.5rem;
+}
+.contact form{
+    margin-top: 2rem;
+    background-color: var(--white);
+    border: var(--border);
+    border-radius: .5rem;
+    box-shadow:var(--box-shadow);
+    padding: 2rem;
+    text-align: center;
+}
+.contact form h3{
+    font-size: 2.5rem;
+    color: var(--black);
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.contact footer .flex{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+}
+.contact form .flex .box{
+    flex:1 1 40rem;
+}
+.contact form .input{
+    width: 100%;
+    border-radius: .5rem;
+    padding: 1.4rem;
+    color: var(--black);
+    font-size: 1.8rem;
+    background-color: var(--light-bg);
+    margin: 1rem 0;
+}
+.contact form p{
+    text-align: left;
+    font-size: 1.6rem;
+    color: var(--light-color)
+}
+.contact form p span{
+    color: var(--red);
+}
+.contact form textarea{
+    height: 15rem;
+   resize:none;
+}
+</style>
+</head>
+<body>
+    <header class="header">
+        <section class="flex">
+            <div id="menu-btn" class="fas fa-bars-staggered"></div>
+           <a href="home.html" class="logo"><i class="fas fa-briefcase"></i>JOBHUNT</a>
+            <nav class="navbar">
+                <a href="homepage.html">home</a>
+                <a href="aboutus.html">about</a>
+                <a href="job.html">all jobs</a>
+                <a href="contect.html">contect us</a>
+                <a href="register.html">account</a></nav>
+                <a href="gh" class="btn" style="margin-top: 0;">post job</a>
+                </nav>
+                </section>
+                </header>
+                <br>
+
+    <div class="boxa"> 
+        <span class="borderLine"></span>Contect Us</div>
+        <!--contect us section starts -->
+
+<section class="contact">
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-phone"></i>
+            <a href="tel:1234567890">+91 7388301312</a>        
+            <a href="tel:1112223333">+91 7408642909</a>
+            </div>
+
+        <div class="box">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:singhshiva4256@gmail.com">shivanshdhardubey8@gmail.com</a>        
+                <a href="mailto:singhshiva@gmail.com">shivanshdhardubey2010@gmail.com</a>
+                </div>
+        <div class="box">
+            <i class="fas fa-map-marker-alt"></i>
+            <a href="#">flat no. 1, a-1 building, jogeshwari,mumbai,india - 
+                400410 </a>
+        </div>
+
+
+    </div>
+<form action="" method="post">
+    <h3>drop your message</h3>
+    <div class="flex">
+
+       <div class="box">
+        <p> name <span>*</span></p>
+        <input type="text" name="name" required maxlength="20" 
+        placeholder="enter ypur name" class="input">
+       </div>
+
+       <div class="box">
+        <p> email <span>*</span></p>
+        <input type="text" name="name" required maxlength="50" 
+        placeholder="enter ypur name" class="input">
+       </div>
+       
+       <div class="box">
+        <p>number <span>*</span></p>
+        <input type="number" name="number" required min="0" max="9999999999" maxlength="20" 
+        placeholder="enter ypur number" class="input">
+       </div>
+
+       <div class="box">
+        <p>role<span>*</span></p>
+        <select name="role" required class="input">
+            <option value="employee">job seeker (employee)</option>
+            <option value="employee">job provider (employer)</option>
+        </select>
+       </div>    
+    </div>
+    <p>message <span>*</span></p>
+    <textarea name="message" class="input" required maxlength="1000" 
+    placeholder="enter your message" cols="30" rows="10"></textarea>
+    <input type="submit" value="send message" name="send" class="btn">
+</form>
+
+</section>
+
+<!--contect us section ends -->
+
+
+</body>
+</html>

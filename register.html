@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body setup */
+body {
+    font-family: Arial, sans-serif;
+    background: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Form container */
+.form-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    height: 650px;
+    width: 700px;
+    text-align: center;
+    position: absolute;
+    animation:  spin 5s linear infinite;  /* Spinning animation */
+}
+
+/* Spinning background animation */
+@keyframes  spin{
+    0% {
+        transform: (0deg);
+        background-color: #1f1e1e;
+    }
+    25% {
+        background-color: #63a69f;
+    }
+    50% {
+        background-color: #8f6981;
+    }
+    75% {
+        background-color: #d13c13;
+    }
+    100% {
+        transform:(360deg);
+        background-color: #0c7130;
+    }
+}
+
+/* Title styling */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Input fields styling */
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+label {
+    margin: 2px 0;
+    position:absolute;
+    top: -30px;
+    left: 10px;
+    font-size: 25px;
+    color: #763838;
+    transition: all 0.3s ease;
+}
+
+input, select {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 20px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #63a69f;
+    background-color: #f0f8f1;
+    box-shadow: 0 0 8px rgba(99, 166, 159, 0.6);
+}
+input:focus, select:focus {
+    border-color: #63a69f;
+    background-color: #f0f8f1;
+    box-shadow: 0 0 8px rgba(15, 16, 16, 0.6);
+}
+input:focus + label, select:focus + label {
+    font-size: 12px;
+    color: #63a69f;
+    top: -30px;
+}
+
+/* Submit button styling */
+button {
+    background-color: #63a69f;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #98c2a7;
+    transform: scale(1.05);
+}
+
+/* Success/Error messages */
+.message {
+    display: none;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Register for Job Opportunities</h1>
+        <form id="registration-form">
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Gmail</label>
+                <input type="email" id="email" name="email" placeholder="Enter your Gmail" required>
+            </div>
+
+            <div class="input-group">
+                <label for="phone">Contact Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your contact number" required>
+            </div>
+            <div class="input-group">
+                <label for="phone">Skills</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your skills" required>
+            </div>
+
+            <div class="input-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="input-group">
+                <label for="position">Position Applied For</label>
+                <select id="position" name="position" required>
+                    <option value="">Select a position</option>
+                    <option value="developer">Developer</option>
+                    <option value="designer">Designer</option>
+                    <option value="manager">Manager</option>
+                    <option value="qa">QA Engineer</option>
+                </select>
+            </div>
+              <a href="homepage.html"><button type="submit" id="submit-btn">Register</button></a>
+            
+        </form>
+        <div class="message"></div>
+    </div>
+
+    <script>// JavaScript to handle the registration form submission
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const dob = document.getElementById('dob').value;
+            const position = document.getElementById('position').value;
+        
+            let errorMessage = '';
+            let successMessage = '';
+        
+            // Validate inputs
+            if (!name || !email || !phone || !dob || !position) {
+                errorMessage = 'All fields are required!';
+            } else if (!validateEmail(email)) {
+                errorMessage = 'Please enter a valid Gmail address!';
+            } else if (!validatePhone(phone)) {
+                errorMessage = 'Please enter a valid phone number!';
+            } else {
+                alert('Registered successfully!');
+            }
+        
+            displayMessage(errorMessage, successMessage);
+        });
+        
+        // Email validation (Gmail specific)
+        function validateEmail(email) {
+            const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            return regex.test(email);
+        }
+        
+        // Phone number validation (basic format: 10 digits)
+        function validatePhone(phone) {
+            const regex = /^[0-9]{10}$/;
+            return regex.test(phone);
+        }
+        
+        // Display success/error messages
+        function displayMessage(errorMessage, successMessage) {
+            const messageElement = document.querySelector('.message');
+            messageElement.style.display = 'block';
+        
+            if (errorMessage) {
+                messageElement.classList.add('error');
+                messageElement.classList.remove('success');
+                messageElement.textContent = errorMessage;
+            } else if (successMessage) {
+                messageElement.classList.add('success');
+                messageElement.classList.remove('error');
+                messageElement.textContent = successMessage;
+            }
+        
+            // Auto-hide messages after 4 seconds
+            setTimeout(() => {
+                messageElement.style.display = 'none';
+            }, 4000);
+        }
+        </script>
+</body>
+</html>
+
+</body>
+</html>
